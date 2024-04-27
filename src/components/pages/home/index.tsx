@@ -21,7 +21,11 @@ export default function HomePage() {
         </h1>
       </CardHeader>
       <CardBody>
-        <BodyHome href={faction.image} color={faction.color} />
+        <BodyHome
+          href={faction.image}
+          color={faction.color}
+          height={faction.height}
+        />
       </CardBody>
     </Card>
   );

@@ -4,12 +4,14 @@ export const UNSC: Faction = {
   color: "success",
   image: "/images/Artbook.jpg",
   name: "UNSC",
+  height: 396,
 };
 
 export const COVENANT: Faction = {
   color: "secondary",
   image: "/images/Autumn.jpg",
   name: "Covenant",
+  height: 373,
 };
 
 export const REDIRECT_BUTTONS = [
