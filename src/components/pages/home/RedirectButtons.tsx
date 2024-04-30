@@ -1,4 +1,4 @@
-import { REDIRECT_BUTTONS } from "@/constants/home";
+import { REDIRECT_BUTTONS } from "@/constants/pages/home";
 import { Button } from "@nextui-org/react";
 import Link from "next/link";
 

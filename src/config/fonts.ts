@@ -1,4 +1,9 @@
-import { Inter, Jersey_10, Merriweather } from "next/font/google";
+import {
+  Inter,
+  Jersey_10,
+  Merriweather,
+  Playfair_Display,
+} from "next/font/google";
 
 export const inter = Inter({ subsets: ["latin"] });
 
@@ -10,4 +15,9 @@ export const textCards = Merriweather({
 export const projectTitle = Jersey_10({
   subsets: ["latin"],
   weight: ["400"],
+});
+
+export const infoText = Merriweather({
+  subsets: ["latin"],
+  weight: ["400", "700"],
 });

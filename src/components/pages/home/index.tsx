@@ -1,8 +1,8 @@
 "use client";
 
-import { Card, CardBody, CardHeader, image } from "@nextui-org/react";
+import { Card, CardBody, CardHeader } from "@nextui-org/react";
 import BodyHome from "./BodyHome";
-import { COVENANT, UNSC } from "@/constants/home";
+import { COVENANT, UNSC } from "@/constants/pages/home";
 import { Faction } from "@/types/home";
 import { useState } from "react";
 import { projectTitle } from "@/config/fonts";

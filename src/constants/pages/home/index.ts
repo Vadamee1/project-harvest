@@ -27,8 +27,8 @@ export const REDIRECT_BUTTONS = [
     href: "characters",
     label: "Personajes",
   },
-  {
+  /* {
     href: "today",
     label: "Actualidad",
-  },
+  }, */
 ];
