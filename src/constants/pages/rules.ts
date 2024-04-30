@@ -1,4 +1,4 @@
-export const rulesImage = "/images/Cat_November.jpg";
+export const rulesImage = "/images/Rules.png";
 
 export const rules = [
   {

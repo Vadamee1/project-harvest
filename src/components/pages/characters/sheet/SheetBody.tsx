@@ -31,6 +31,7 @@ export default function SheetBody() {
         <div className="flex flex-col gap-3">
           <div className={`${infoText.className} mt-5`}>{sheetInfo[0]}</div>
           <div className={`${infoText.className}`}>{sheetInfo[1]}</div>
+          <div className={`${infoText.className}`}>{sheetInfo[2]}</div>
         </div>
       </div>
     </div>

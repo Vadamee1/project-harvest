@@ -1,4 +1,11 @@
 import RulesCard from "@/components/pages/rules";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Reglamento",
+  description: "Reglamento de la comunidad",
+  icons: "/LogoHalo.png",
+};
 
 export default function RulesPage() {
   return (

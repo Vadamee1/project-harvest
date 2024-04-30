@@ -10,7 +10,7 @@ interface Props {
 
 export default function BodyHome({ color, href, height }: Props) {
   return (
-    <div className="grid gap-5 justify-center">
+    <div className="grid justify-center gap-3">
       <div className="flex justify-center">
         <Image
           alt="Imagen promocional"
@@ -19,6 +19,7 @@ export default function BodyHome({ color, href, height }: Props) {
           src={href}
           as={NextImage}
           priority
+          isBlurred
         />
       </div>
       <RedirectButtons color={color} />

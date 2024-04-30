@@ -2,10 +2,10 @@
 
 import { Card, CardBody, CardHeader } from "@nextui-org/react";
 import BodyHome from "./BodyHome";
-import { COVENANT, UNSC } from "@/constants/pages/home";
 import { Faction } from "@/types/home";
 import { useState } from "react";
 import { projectTitle } from "@/config/fonts";
+import { COVENANT, UNSC } from "@/constants/pages/home";
 
 export default function HomePage() {
   const [faction, setFaction] = useState<Faction>(UNSC);
@@ -14,7 +14,7 @@ export default function HomePage() {
     faction.name !== "Covenant" ? setFaction(COVENANT) : setFaction(UNSC);
   };
   return (
-    <Card className="" isPressable onClick={handleChangeFaction}>
+    <Card isPressable onClick={handleChangeFaction}>
       <CardHeader className="flex justify-center">
         <h1 className={`${projectTitle.className} text-3xl`}>
           Project Harvest

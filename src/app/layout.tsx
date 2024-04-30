@@ -17,7 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={`${inter.className} min-h-screen`}>
+      <body
+        className={`${inter.className} min-h-screen bg-[url('/images/HaloCover.jpg')] bg-cover bg-center`}
+      >
         <Providers>{children}</Providers>
       </body>
     </html>
