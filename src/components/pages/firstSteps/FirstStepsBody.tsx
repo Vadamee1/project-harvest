@@ -44,7 +44,7 @@ export default function FirstStepsBody() {
               Vadam
             </Link>
             <span> - </span>
-            <Link href={ryPath} color="primary" as={NextLink}>
+            <Link href={ryPath} as={NextLink} className="text-purple-600">
               Ry
             </Link>
           </div>
