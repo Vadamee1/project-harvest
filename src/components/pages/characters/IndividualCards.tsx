@@ -15,7 +15,7 @@ export default function IndividualCards() {
             <Image
               removeWrapper
               alt="Card example background"
-              className="z-0 w-full h-full scale-125 -translate-y-6 object-cover"
+              className="z-0 w-full h-full  object-cover"
               src={item.image}
             />
             <CardFooter className="absolute bg-white/30 bottom-0 border-t-1 border-zinc-100/50 z-10 justify-between">

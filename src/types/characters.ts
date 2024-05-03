@@ -4,4 +4,5 @@ export type CharacterType = {
   image: string;
   faction: string;
   profile: string;
+  className?: string;
 };
