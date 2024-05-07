@@ -6,12 +6,13 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const sesion = await auth();
-  const isLoggedIn = !!sesion?.user;
+  const session = await auth();
+  const user = session?.user;
+  const isLoggedIn = !!session?.user;
 
   return (
     <>
-      <Appbar isLoggedIn={isLoggedIn} />
+      <Appbar isLoggedIn={isLoggedIn} userImage={user?.image} />
       {children}
     </>
   );
