@@ -10,6 +10,7 @@ import {
   IoEyeOff,
   IoInformationCircleOutline,
 } from "react-icons/io5";
+import { MdEmail } from "react-icons/md";
 
 export default function Form() {
   const [isVisible, setIsVisible] = useState(false);
@@ -19,27 +20,38 @@ export default function Form() {
 
   return (
     <form action={dispatch}>
-      <Input type="email" name="email" label="Email" id="email" required />
-      <Input
-        type={isVisible ? "text" : "password"}
-        label="Contraseña"
-        name="password"
-        id="password"
-        required
-        endContent={
-          <button
-            className="focus:outline-none"
-            type="button"
-            onClick={toggleVisibility}
-          >
-            {isVisible ? (
-              <IoEyeOff className="text-2xl text-default-400 pointer-events-none" />
-            ) : (
-              <IoEye className="text-2xl text-default-400 pointer-events-none" />
-            )}
-          </button>
-        }
-      />
+      <div className="flex flex-col gap-2">
+        <Input
+          type="email"
+          name="email"
+          label="Email"
+          id="email"
+          required
+          endContent={
+            <MdEmail className="text-2xl text-default-400 pointer-events-none" />
+          }
+        />
+        <Input
+          type={isVisible ? "text" : "password"}
+          label="Contraseña"
+          name="password"
+          id="password"
+          required
+          endContent={
+            <button
+              className="focus:outline-none"
+              type="button"
+              onClick={toggleVisibility}
+            >
+              {isVisible ? (
+                <IoEyeOff className="text-2xl text-default-400 pointer-events-none" />
+              ) : (
+                <IoEye className="text-2xl text-default-400 pointer-events-none" />
+              )}
+            </button>
+          }
+        />
+      </div>
       <LoginButton />
       <div
         className="flex h-8 items-end space-x-1"
