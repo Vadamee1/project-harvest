@@ -5,6 +5,7 @@ import {
   Navbar,
   NavbarBrand,
   NavbarContent,
+  NavbarItem,
   NavbarMenu,
   NavbarMenuItem,
   NavbarMenuToggle,
@@ -41,6 +42,15 @@ export default function Appbar({ isLoggedIn, userImage }: Props) {
             <span className={`${projectTitle.className}`}>rpg</span>
           </div>
         </NavbarBrand>
+      </NavbarContent>
+      <NavbarContent justify="center">
+        {navbarItems.map((item) => (
+          <NavbarItem key={item.href} className="hidden md:block">
+            <Link href={item.href} as={NextLink} color="foreground">
+              {item.name}
+            </Link>
+          </NavbarItem>
+        ))}
       </NavbarContent>
       <NavbarContent justify="end">
         {isLoggedIn ? <AvatarNavbar userImage={userImage} /> : <SignUpButton />}

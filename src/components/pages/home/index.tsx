@@ -15,11 +15,11 @@ export default function HomePage() {
   };
   return (
     <Card isBlurred isPressable onClick={handleChangeFaction}>
-      <CardHeader className="flex justify-center">
+      {/* <CardHeader className="flex justify-center">
         <h1 className={`${projectTitle.className} text-3xl`}>
           Project Harvest
         </h1>
-      </CardHeader>
+      </CardHeader> */}
       <CardBody>
         <BodyHome
           href={faction.image}
