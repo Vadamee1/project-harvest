@@ -32,3 +32,20 @@ export const REDIRECT_BUTTONS = [
     label: "Actualidad",
   }, */
 ];
+
+export const typeWriterText = [
+  "¿Estás",
+  "listo",
+  "para",
+  "formar",
+  "parte",
+  "del",
+  "único",
+  "escuadrón",
+  "que",
+  "luchará",
+  "por",
+  "Harvest?",
+];
+export const homeText =
+  "¿Estás listo para formar parte del único escuadrón disponible que luchará por Harvest?";

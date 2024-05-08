@@ -14,7 +14,7 @@ export default function HomePage() {
     faction.name !== "Covenant" ? setFaction(COVENANT) : setFaction(UNSC);
   };
   return (
-    <Card isPressable onClick={handleChangeFaction}>
+    <Card isBlurred isPressable onClick={handleChangeFaction}>
       <CardHeader className="flex justify-center">
         <h1 className={`${projectTitle.className} text-3xl`}>
           Project Harvest
