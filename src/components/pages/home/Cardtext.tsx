@@ -1,7 +1,7 @@
 "use client";
 
-import { inter, projectTitle } from "@/config/fonts";
-import { homeText, typeWriterText } from "@/constants/pages/home";
+import { projectTitle } from "@/config/fonts";
+import { homeText } from "@/constants/pages/home";
 import { Card, CardBody } from "@nextui-org/react";
 import Typewriter from "typewriter-effect";
 
