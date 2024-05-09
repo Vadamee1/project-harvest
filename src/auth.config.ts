@@ -7,12 +7,18 @@ export const authConfig = {
   callbacks: {
     authorized({ auth, request: { nextUrl } }) {
       const isLoggedIn = !!auth?.user;
-      const isOnHome = nextUrl.pathname.startsWith("/");
-      if (isOnHome) {
-        if (isLoggedIn) return true;
-        return false;
-      }
       return true;
+    },
+    jwt({ token, user }) {
+      if (user) {
+        token.data = user;
+      }
+
+      return token;
+    },
+    session({ session, token, user }) {
+      session.user = token.data as any;
+      return session;
     },
   },
   providers: [], // Add providers with an empty array for now

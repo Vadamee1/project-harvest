@@ -1,4 +1,7 @@
+import { auth } from "@/auth";
 import HomePage from "@/components/pages/home";
+import CardText from "@/components/pages/home/Cardtext";
+import Appbar from "@/components/shared/Appbar";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -7,11 +10,24 @@ export const metadata: Metadata = {
   icons: "/LogoHalo.png",
 };
 
-export default function Home() {
+export default async function Home() {
+  const session = await auth();
+  const user = session?.user;
+  const isLoggedIn = !!session?.user;
+
   return (
     <main>
-      <div className="flex justify-center min-h-screen items-center">
-        <HomePage />
+      <Appbar isLoggedIn={isLoggedIn} userImage={user?.image} />
+      <div className="flex min-h-screen items-center justify-center gap-16">
+        <div className="w-3/6 hidden md:block">
+          <CardText textSize="text-7xl" />
+        </div>
+        <div className="">
+          <div className="md:hidden w-80 mb-5 mt-5">
+            <CardText textSize="text-4xl" />
+          </div>
+          <HomePage />
+        </div>
       </div>
     </main>
   );

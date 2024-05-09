@@ -5,3 +5,5 @@ export const rulesPath = "/rules";
 
 export const characters = "/characters";
 export const characterSheetPath = "/characters/sheet";
+
+export const authLoginPath = "/auth";

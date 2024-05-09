@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,6 +22,7 @@ export default function RootLayout({
         className={`${inter.className} min-h-screen bg-[url('/images/HaloCover.jpg')] bg-cover bg-center`}
       >
         <Providers>{children}</Providers>
+        <Script src="https://unpkg.com/typewriter-effect@latest/dist/core.js" />
       </body>
     </html>
   );
