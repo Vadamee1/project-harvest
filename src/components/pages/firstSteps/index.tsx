@@ -21,12 +21,10 @@ export default function FirstStepsCard() {
         </div>
         <InfoCard />
       </div>
-      <div className="">
-        <CustomRedirectButtons
-          buttons={buttons}
-          className="flex justify-end mt-5 md:w-11/12 ml-8"
-        />
-      </div>
+      <CustomRedirectButtons
+        buttons={buttons}
+        className="flex mt-5 justify-end mr-10 md:mr-20"
+      />
     </div>
   );
 }
