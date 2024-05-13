@@ -1,9 +1,9 @@
 import CustomRedirectButtons from "@/components/shared/CustomRedirectButtons";
-import { firstStepsImage } from "@/constants/pages/firstSteps";
+import { sheetImage } from "@/constants/pages/characterSheet";
 import { RedirectButtonsType } from "@/types/shared";
-import { Card, Image } from "@nextui-org/react";
+import { Image } from "@nextui-org/react";
 
-export default function ImageCard() {
+export default function ImageSheet() {
   const buttons: RedirectButtonsType[] = [
     {
       label: "Regresar",
@@ -20,7 +20,7 @@ export default function ImageCard() {
           alt="Acerca del proyecto"
           height={400}
           width={300}
-          src={firstStepsImage}
+          src={sheetImage}
         />
       </div>
       <CustomRedirectButtons

@@ -1,3 +1,4 @@
+import CustomRedirectButtons from "@/components/shared/CustomRedirectButtons";
 import { infoText, projectTitle } from "@/config/fonts";
 import { aboutUs } from "@/constants/pages/firstSteps";
 import {
@@ -7,10 +8,26 @@ import {
   ryPath,
   vadamPath,
 } from "@/constants/paths";
-import { Card, CardBody, CardHeader, Link } from "@nextui-org/react";
+import { RedirectButtonsType } from "@/types/shared";
+import {
+  Card,
+  CardBody,
+  CardFooter,
+  CardHeader,
+  Link,
+} from "@nextui-org/react";
 import NextLink from "next/link";
 
 export default function InfoCard() {
+  const buttons: RedirectButtonsType[] = [
+    {
+      label: "Regresar",
+      color: "warning",
+      variant: "ghost",
+      href: "/",
+    },
+  ];
+
   return (
     <Card isBlurred className="mt-2 w-5/6 md:w-3/6">
       <CardHeader className="flex justify-center">
@@ -51,6 +68,11 @@ export default function InfoCard() {
           </div>
         </div>
       </CardBody>
+      <CardFooter className="md:hidden">
+        <div className="flex w-full justify-end">
+          <CustomRedirectButtons buttons={buttons} className="" />
+        </div>
+      </CardFooter>
     </Card>
   );
 }

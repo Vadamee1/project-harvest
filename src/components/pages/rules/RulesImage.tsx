@@ -1,15 +1,17 @@
 import CustomRedirectButtons from "@/components/shared/CustomRedirectButtons";
-import { firstStepsImage } from "@/constants/pages/firstSteps";
+import { infoText } from "@/config/fonts";
+import { rules, rulesImage } from "@/constants/pages/rules";
 import { RedirectButtonsType } from "@/types/shared";
-import { Card, Image } from "@nextui-org/react";
+import { Image } from "@nextui-org/react";
+import NextImage from "next/image";
 
-export default function ImageCard() {
+export default function RulesImage() {
   const buttons: RedirectButtonsType[] = [
     {
       label: "Regresar",
       color: "warning",
       variant: "ghost",
-      href: "/",
+      href: "/firstSteps",
     },
   ];
 
@@ -17,10 +19,12 @@ export default function ImageCard() {
     <div className="flex flex-col">
       <div className="flex justify-center mb-5">
         <Image
-          alt="Acerca del proyecto"
+          alt="Trama principal"
           height={400}
           width={300}
-          src={firstStepsImage}
+          src={rulesImage}
+          as={NextImage}
+          priority
         />
       </div>
       <CustomRedirectButtons

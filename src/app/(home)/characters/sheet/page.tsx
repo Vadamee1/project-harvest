@@ -1,4 +1,4 @@
-import SheetCard from "@/components/pages/characters/sheet";
+import Sheet from "@/components/pages/characters/sheet";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function SheetPage() {
   return (
     <div className="flex justify-center min-h-screen items-center">
-      <SheetCard />
+      <Sheet />
     </div>
   );
 }
