@@ -1,4 +1,4 @@
-import RulesCard from "@/components/pages/rules";
+import Rules from "@/components/pages/rules";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function RulesPage() {
   return (
     <div className="flex justify-center min-h-screen items-center">
-      <RulesCard />
+      <Rules />
     </div>
   );
 }
