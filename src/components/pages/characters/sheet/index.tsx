@@ -1,8 +1,3 @@
-import { projectTitle } from "@/config/fonts";
-import { Card, CardBody, CardFooter, CardHeader } from "@nextui-org/react";
-import CustomRedirectButtons from "@/components/shared/CustomRedirectButtons";
-import { RedirectButtonsType } from "@/types/shared";
-import SheetBody from "./SheetBody";
 import ImageSheet from "./ImageSheet";
 import SheetCard from "./SheetCard";
 

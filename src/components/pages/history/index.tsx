@@ -1,37 +1,13 @@
-import { projectTitle } from "@/config/fonts";
-import { Card, CardBody, CardFooter, CardHeader } from "@nextui-org/react";
-import HistoryBody from "./HistoryBody";
-import RedirectButtons from "../../shared/CustomRedirectButtons";
-import { RedirectButtonsType } from "@/types/shared";
+import HistoryImage from "./HistoryImage";
+import HistoryCard from "./HistoryCard";
 
-export default function HistoryCard() {
-  const buttons: RedirectButtonsType[] = [
-    {
-      label: "Regresar",
-      color: "warning",
-      variant: "ghost",
-      href: "/",
-    },
-  ];
-
+export default function History() {
   return (
-    <>
-      <Card className="mt-5 mb-5">
-        <CardHeader className="flex justify-center">
-          <h1 className={`${projectTitle.className} text-3xl`}>
-            Trama principal
-          </h1>
-        </CardHeader>
-        <CardBody>
-          <HistoryBody />
-        </CardBody>
-        <CardFooter>
-          <RedirectButtons
-            buttons={buttons}
-            className="flex w-full justify-between"
-          />
-        </CardFooter>
-      </Card>
-    </>
+    <div className="flex gap-14 justify-center items-center">
+      <div className="hidden md:block">
+        <HistoryImage />
+      </div>
+      <HistoryCard />
+    </div>
   );
 }

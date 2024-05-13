@@ -69,9 +69,10 @@ export default function InfoCard() {
         </div>
       </CardBody>
       <CardFooter className="md:hidden">
-        <div className="flex w-full justify-end">
-          <CustomRedirectButtons buttons={buttons} className="" />
-        </div>
+        <CustomRedirectButtons
+          buttons={buttons}
+          className="flex w-full justify-end"
+        />
       </CardFooter>
     </Card>
   );

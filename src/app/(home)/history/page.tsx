@@ -1,4 +1,4 @@
-import HistoryCard from "@/components/pages/history";
+import History from "@/components/pages/history";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function HistoryPage() {
   return (
     <div className="flex justify-center min-h-screen items-center">
-      <HistoryCard />
+      <History />
     </div>
   );
 }
