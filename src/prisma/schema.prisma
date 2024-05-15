@@ -20,6 +20,8 @@ model User {
 
   role Role @relation(fields: [roleId], references: [id])
 
+  character Character[]
+
   @@map("user")
 }
 
@@ -33,4 +35,24 @@ model Role {
   user User[] 
 
   @@map("role")
+}
+
+model Character {
+  id Int @id @default(autoincrement())
+  name String @db.VarChar(50)
+  faction String @db.VarChar(20)
+  age Int?
+  height Int?
+  weight Int?
+  position String?
+  race String?
+  history String?
+  birthday DateTime?
+  image String?
+  profile String
+  userId String @map("user_id")
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@map("character")
 }

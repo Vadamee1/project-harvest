@@ -8,7 +8,6 @@ export const sheetData = [
   "Peso:",
   "Rango:",
   "Raza:",
-  "Orientación sexual:",
   "Historia:",
 ];
 

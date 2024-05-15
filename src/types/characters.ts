@@ -6,3 +6,10 @@ export type CharacterType = {
   profile: string;
   className?: string;
 };
+
+export type CreateCharacterType = {
+  name: string;
+  faction: string;
+  profile: string;
+  userId: string;
+};
