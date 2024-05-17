@@ -26,8 +26,6 @@ interface Props {
 export default function EditForm({ character }: Props) {
   const router = useRouter();
 
-  console.log(character?.birthday?.toISOString().substring(0, 16));
-
   const formik = useFormik({
     initialValues: {
       id: character?.id ? character.id : 1,
@@ -57,7 +55,6 @@ export default function EditForm({ character }: Props) {
       history: yup.string(),
     }),
     onSubmit: async (values) => {
-      console.log(values);
       const resp = await updateCharacter({
         ...values,
         birthday: values.birthday?.toDate(getLocalTimeZone()),
