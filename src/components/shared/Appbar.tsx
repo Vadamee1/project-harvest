@@ -20,9 +20,10 @@ import { navbarItems } from "@/constants/navbarItems";
 interface Props {
   isLoggedIn: boolean;
   userImage: string | undefined | null;
+  isAdmin: boolean;
 }
 
-export default function Appbar({ isLoggedIn, userImage }: Props) {
+export default function Appbar({ isLoggedIn, userImage, isAdmin }: Props) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
@@ -30,7 +31,7 @@ export default function Appbar({ isLoggedIn, userImage }: Props) {
       <NavbarContent>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="sm:hidden"
+          className="md:hidden"
         />
         <NavbarBrand>
           <div className="flex gap-1">
@@ -44,25 +45,45 @@ export default function Appbar({ isLoggedIn, userImage }: Props) {
         </NavbarBrand>
       </NavbarContent>
       <NavbarContent justify="center">
-        {navbarItems.map((item) => (
-          <NavbarItem key={item.href} className="hidden md:block">
-            <Link href={item.href} as={NextLink} color="foreground">
-              {item.name}
+        <NavbarItem className="hidden md:block">
+          <Link href={navbarItems[0].href} as={NextLink} color="foreground">
+            {navbarItems[0].name}
+          </Link>
+        </NavbarItem>
+        <NavbarItem className="hidden md:block">
+          <Link href={navbarItems[1].href} as={NextLink} color="foreground">
+            {navbarItems[1].name}
+          </Link>
+        </NavbarItem>
+        {isAdmin && (
+          <NavbarItem className="hidden md:block">
+            <Link href={navbarItems[2].href} as={NextLink} color="foreground">
+              {navbarItems[2].name}
             </Link>
           </NavbarItem>
-        ))}
+        )}
       </NavbarContent>
       <NavbarContent justify="end">
         {isLoggedIn ? <AvatarNavbar userImage={userImage} /> : <SignUpButton />}
       </NavbarContent>
       <NavbarMenu>
-        {navbarItems.map((item) => (
-          <NavbarMenuItem key={item.href}>
-            <Link href={item.href} as={NextLink} color="foreground">
-              {item.name}
+        <NavbarMenuItem>
+          <Link href={navbarItems[0].href} as={NextLink} color="foreground">
+            {navbarItems[0].name}
+          </Link>
+        </NavbarMenuItem>
+        <NavbarMenuItem>
+          <Link href={navbarItems[1].href} as={NextLink} color="foreground">
+            {navbarItems[1].name}
+          </Link>
+        </NavbarMenuItem>
+        {isAdmin && (
+          <NavbarMenuItem>
+            <Link href={navbarItems[2].href} as={NextLink} color="foreground">
+              {navbarItems[2].name}
             </Link>
           </NavbarMenuItem>
-        ))}
+        )}
       </NavbarMenu>
     </Navbar>
   );

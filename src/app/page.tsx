@@ -14,10 +14,15 @@ export default async function Home() {
   const session = await auth();
   const user = session?.user;
   const isLoggedIn = !!session?.user;
+  const isAdmin = user?.roleId === 1 ? true : false;
 
   return (
     <main>
-      <Appbar isLoggedIn={isLoggedIn} userImage={user?.image} />
+      <Appbar
+        isLoggedIn={isLoggedIn}
+        userImage={user?.image}
+        isAdmin={isAdmin}
+      />
       <div className="flex min-h-screen items-center justify-center gap-16">
         <div className="w-3/6 hidden md:block">
           <CardText textSize="text-7xl" />

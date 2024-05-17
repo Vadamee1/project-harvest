@@ -9,10 +9,15 @@ export default async function RootLayout({
   const session = await auth();
   const user = session?.user;
   const isLoggedIn = !!session?.user;
+  const isAdmin = user?.roleId === 1 ? true : false;
 
   return (
     <>
-      <Appbar isLoggedIn={isLoggedIn} userImage={user?.image} />
+      <Appbar
+        isLoggedIn={isLoggedIn}
+        userImage={user?.image}
+        isAdmin={isAdmin}
+      />
       {children}
     </>
   );

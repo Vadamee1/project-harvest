@@ -7,15 +7,8 @@ export const navbarItems = [
     href: "/characters",
     name: "Personajes",
   },
+  {
+    href: "/admin/characters",
+    name: "Admin",
+  },
 ];
-
-/* export const menuItems = [
-  {
-    href: "history",
-    name: "Trama principal",
-  },
-  {
-    href: "/characters",
-    name: "Personajes",
-  },
-]; */

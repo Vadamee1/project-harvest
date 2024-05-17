@@ -23,6 +23,7 @@ const config: Config = {
       themes: {
         dark: {
           colors: {
+            default: "#FAFAFA",
             success: "#0E793C",
             secondary: "#6020A0",
           },
