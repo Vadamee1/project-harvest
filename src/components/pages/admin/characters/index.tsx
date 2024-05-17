@@ -1,5 +1,3 @@
-import { projectTitle } from "@/config/fonts";
-import ImageCard from "./ImageCard";
 import CharactersForm from "./CharactersForm";
 import { Card, CardBody } from "@nextui-org/react";
 import getUsers from "@/actions/user/read";
