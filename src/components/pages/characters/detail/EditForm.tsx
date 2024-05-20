@@ -14,6 +14,7 @@ import { useRouter } from "next/navigation";
 import * as yup from "yup";
 
 import { parseDate, getLocalTimeZone } from "@internationalized/date";
+import Link from "next/link";
 
 type Params = Omit<CharacterDetailType, "birthday"> & {
   birthday?: Date | null;
@@ -71,7 +72,7 @@ export default function EditForm({ character }: Props) {
 
   return (
     <form onSubmit={formik.handleSubmit}>
-      <div className="grid grid-cols-3 ml-5 mr-5">
+      <div className="grid gap-5 md:grid-cols-3 ml-5 mr-5">
         <Input
           label="Nombre del personaje"
           name="name"
@@ -167,7 +168,10 @@ export default function EditForm({ character }: Props) {
           errorMessage={formik.errors.history}
         />
       </div>
-      <div className="flex justify-end mt-8">
+      <div className="flex justify-between mt-8 ml-4 mr-4">
+        <Button variant="ghost" color="danger" as={Link} href="/characters">
+          Cancelar
+        </Button>
         <Button variant="ghost" color="primary" type="submit">
           Send
         </Button>

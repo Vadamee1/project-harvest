@@ -1,4 +1,6 @@
+import getCharacters from "@/actions/characters/list";
 import CharactersCard from "@/components/pages/characters";
+import { CharacterList } from "@/types/characters";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -7,10 +9,12 @@ export const metadata: Metadata = {
   icons: "/LogoHalo.png",
 };
 
-export default function CharactersPage() {
+export default async function CharactersPage() {
+  const characters: CharacterList[] = await getCharacters();
+
   return (
     <div className="flex justify-center min-h-screen items-center">
-      <CharactersCard />
+      <CharactersCard characters={characters} />
     </div>
   );
 }
