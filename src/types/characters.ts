@@ -48,3 +48,9 @@ export type CharacterUpdateType = {
   birthday: Date | null | undefined;
   profile: string;
 };
+
+export type CharacterList = {
+  id: number;
+  name: string;
+  image: string | null;
+};

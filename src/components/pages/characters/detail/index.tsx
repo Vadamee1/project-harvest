@@ -12,7 +12,7 @@ interface Props {
 
 export default function DetailCard({ character, isOwner, onEdit }: Props) {
   return (
-    <div className="flex gap-5 justify-center items-center">
+    <div className="flex flex-col md:flex-row gap-5 justify-center items-center">
       <div>
         {onEdit ? (
           <InputCardFile isOwner={isOwner} image={character?.image} />
