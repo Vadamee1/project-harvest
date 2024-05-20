@@ -1,16 +1,12 @@
 "use client";
 
 import { authenticate } from "@/actions/auth/authenticate";
-import { Button, Input } from "@nextui-org/react";
+import { Button, Input, Link } from "@nextui-org/react";
 import { useState } from "react";
 import { useFormState, useFormStatus } from "react-dom";
-import {
-  IoArrowForward,
-  IoEye,
-  IoEyeOff,
-  IoInformationCircleOutline,
-} from "react-icons/io5";
+import { IoEye, IoEyeOff, IoInformationCircleOutline } from "react-icons/io5";
 import { MdEmail } from "react-icons/md";
+import NextLink from "next/link";
 
 export default function Form() {
   const [isVisible, setIsVisible] = useState(false);
@@ -20,13 +16,15 @@ export default function Form() {
 
   return (
     <form action={dispatch}>
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-4 mb-2">
         <Input
           type="email"
           name="email"
           label="Email"
           id="email"
+          variant="bordered"
           required
+          labelPlacement="outside"
           endContent={
             <MdEmail className="text-2xl text-default-400 pointer-events-none" />
           }
@@ -36,7 +34,9 @@ export default function Form() {
           label="Contraseña"
           name="password"
           id="password"
+          variant="bordered"
           required
+          labelPlacement="outside"
           endContent={
             <button
               className="focus:outline-none"
@@ -65,6 +65,9 @@ export default function Form() {
           </>
         )}
       </div>
+      <Link as={NextLink} color="warning" href="/auth/new-user">
+        ¿Aún no tienes una cuenta? ¡Registrate!
+      </Link>
     </form>
   );
 }
@@ -73,8 +76,13 @@ function LoginButton() {
   const { pending } = useFormStatus();
 
   return (
-    <Button className="mt-4 w-full" aria-disabled={pending} type="submit">
-      Log in <IoArrowForward className="ml-auto h-5 w-5 text-gray-50" />
+    <Button
+      className="mt-4 w-full"
+      aria-disabled={pending}
+      type="submit"
+      variant="shadow"
+    >
+      Log in
     </Button>
   );
 }

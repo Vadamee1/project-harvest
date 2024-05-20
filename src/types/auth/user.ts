@@ -19,3 +19,9 @@ export type SessionUserType = {
   createdAt: Date;
   updatedAt: Date;
 };
+
+export type CreateUserType = {
+  nickname: string;
+  email: string;
+  password: string;
+};

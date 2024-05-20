@@ -4,7 +4,7 @@ import { projectTitle } from "@/config/fonts";
 
 export default function CardLogin() {
   return (
-    <Card>
+    <Card isBlurred>
       <CardHeader className="flex justify-center">
         <div className={`${projectTitle.className} text-3xl`}>Ingresar</div>
       </CardHeader>
