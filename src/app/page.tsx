@@ -16,12 +16,15 @@ export default async function Home() {
   const isLoggedIn = !!session?.user;
   const isAdmin = user?.roleId === 1 ? true : false;
 
+  console.log(user?.id);
+
   return (
     <main>
       <Appbar
         isLoggedIn={isLoggedIn}
         userImage={user?.image}
         isAdmin={isAdmin}
+        userId={user?.id}
       />
       <div className="flex min-h-screen items-center justify-center gap-16">
         <div className="w-3/6 hidden md:block">

@@ -25,3 +25,8 @@ export type CreateUserType = {
   email: string;
   password: string;
 };
+
+export type ResetPasswordType = {
+  email: string;
+  password: string;
+};

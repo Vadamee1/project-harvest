@@ -21,10 +21,17 @@ interface Props {
   isLoggedIn: boolean;
   userImage: string | undefined | null;
   isAdmin: boolean;
+  userId: string | undefined;
 }
 
-export default function Appbar({ isLoggedIn, userImage, isAdmin }: Props) {
+export default function Appbar({
+  isLoggedIn,
+  userImage,
+  isAdmin,
+  userId,
+}: Props) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  console.log(userId);
 
   return (
     <Navbar onMenuOpenChange={setIsMenuOpen}>
@@ -64,7 +71,11 @@ export default function Appbar({ isLoggedIn, userImage, isAdmin }: Props) {
         )}
       </NavbarContent>
       <NavbarContent justify="end">
-        {isLoggedIn ? <AvatarNavbar userImage={userImage} /> : <SignUpButton />}
+        {isLoggedIn ? (
+          <AvatarNavbar userImage={userImage} userId={userId} />
+        ) : (
+          <SignUpButton />
+        )}
       </NavbarContent>
       <NavbarMenu>
         <NavbarMenuItem>

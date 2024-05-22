@@ -3,3 +3,14 @@ export type UserOptions = {
   nickname: string;
   image: string | null;
 };
+
+export type UserType = {
+  id: string;
+  nickname: string;
+  email: string;
+  roleId: number;
+  image: string | null | undefined;
+  createdAt: Date | null;
+  updatedAt: Date | null;
+  deletedAt?: Date | null;
+};

@@ -6,13 +6,15 @@ import {
   DropdownMenu,
   DropdownTrigger,
 } from "@nextui-org/react";
+import Link from "next/link";
 import { IoArrowBack } from "react-icons/io5";
 
 interface Props {
   userImage: string | undefined | null;
+  userId: string | undefined;
 }
 
-export default function AvatarNavbar({ userImage }: Props) {
+export default function AvatarNavbar({ userImage, userId }: Props) {
   return (
     <Dropdown>
       <DropdownTrigger>
@@ -26,8 +28,11 @@ export default function AvatarNavbar({ userImage }: Props) {
         />
       </DropdownTrigger>
       <DropdownMenu aria-label="Menú de usuario">
+        <DropdownItem as={Link} href={`/users/${userId}`}>
+          Perfil
+        </DropdownItem>
         <DropdownItem onClick={() => logout()} startContent={<IoArrowBack />}>
-          Log out
+          Cerrar sesión
         </DropdownItem>
       </DropdownMenu>
     </Dropdown>

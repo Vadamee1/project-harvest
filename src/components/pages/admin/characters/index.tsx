@@ -1,6 +1,6 @@
+import getUsers from "@/actions/user/options";
 import CharactersForm from "./CharactersForm";
 import { Card, CardBody } from "@nextui-org/react";
-import getUsers from "@/actions/user/read";
 
 export default async function Create() {
   const users = await getUsers();
