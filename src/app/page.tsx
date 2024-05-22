@@ -16,8 +16,6 @@ export default async function Home() {
   const isLoggedIn = !!session?.user;
   const isAdmin = user?.roleId === 1 ? true : false;
 
-  console.log(user?.id);
-
   return (
     <main>
       <Appbar

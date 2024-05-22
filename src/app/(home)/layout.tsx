@@ -14,6 +14,7 @@ export default async function RootLayout({
   return (
     <>
       <Appbar
+        userId={user?.id}
         isLoggedIn={isLoggedIn}
         userImage={user?.image}
         isAdmin={isAdmin}

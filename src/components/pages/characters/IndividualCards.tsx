@@ -10,14 +10,9 @@ interface Props {
 export default function IndividualCards({ characters }: Props) {
   return (
     <>
-      <div className="grid gap-5">
+      <div className="grid grid-cols-3 gap-5">
         {characters.map((item) => (
-          <Card
-            isFooterBlurred
-            isPressable
-            className="w-full h-[300px] col-span-12 sm:col-span-5"
-            key={item.id}
-          >
+          <Card isFooterBlurred className="w-full h-[300px] " key={item.id}>
             <Image
               removeWrapper
               alt="Card example background"

@@ -31,7 +31,6 @@ export default function Appbar({
   userId,
 }: Props) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  console.log(userId);
 
   return (
     <Navbar onMenuOpenChange={setIsMenuOpen}>
