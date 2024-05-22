@@ -15,8 +15,6 @@ export default function ImageCard({ image }: Props) {
             src={image}
             height={400}
             width={300}
-            as={NextImage}
-            priority
           />
         ) : (
           <p>Not image</p>

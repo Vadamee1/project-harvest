@@ -12,13 +12,8 @@ import {
 import { useFormik } from "formik";
 import { useRouter } from "next/navigation";
 import * as yup from "yup";
-
 import { parseDate, getLocalTimeZone } from "@internationalized/date";
 import Link from "next/link";
-
-type Params = Omit<CharacterDetailType, "birthday"> & {
-  birthday?: Date | null;
-};
 
 interface Props {
   character: CharacterDetailType | null;
@@ -61,7 +56,7 @@ export default function EditForm({ character }: Props) {
         birthday: values.birthday?.toDate(getLocalTimeZone()),
       });
       if (resp.severity === "success") {
-        router.push("/");
+        router.push(`/characters/${character?.id}`);
       }
     },
   });
@@ -169,7 +164,12 @@ export default function EditForm({ character }: Props) {
         />
       </div>
       <div className="flex justify-between mt-8 ml-4 mr-4">
-        <Button variant="ghost" color="danger" as={Link} href="/characters">
+        <Button
+          variant="ghost"
+          color="danger"
+          as={Link}
+          href={`/characters/${character?.id}`}
+        >
           Cancelar
         </Button>
         <Button variant="ghost" color="primary" type="submit">

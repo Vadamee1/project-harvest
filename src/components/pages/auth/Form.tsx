@@ -51,6 +51,9 @@ export default function Form() {
             </button>
           }
         />
+        <Link color="danger" className="text-tiny" href="/auth/reset-password">
+          ¿Olvidaste tu contraseña?
+        </Link>
       </div>
       <LoginButton />
       <div

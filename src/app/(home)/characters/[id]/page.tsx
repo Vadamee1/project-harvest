@@ -1,7 +1,14 @@
 import getCharacterDetail from "@/actions/characters/detail";
 import { auth } from "@/auth";
 import DetailCard from "@/components/pages/characters/detail";
+import { Metadata } from "next";
 import { redirect } from "next/navigation";
+
+export const metadata: Metadata = {
+  title: "Personajes",
+  description: "Consulta la inforación detallada de un personjae",
+  icons: "/LogoHalo.png",
+};
 
 export default async function CharacterDetail({
   params,

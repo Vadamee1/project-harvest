@@ -33,7 +33,11 @@ export default function InfoCard({ character }: Props) {
         </div>
         <div className={`${infoText.className}`}>
           <p className="text-xl">Cumpleaños:</p>
-          <p>{character?.birthday ? String(character?.birthday) : ""}</p>
+          <p>
+            {character?.birthday
+              ? Intl.DateTimeFormat("es-MX").format(character?.birthday)
+              : ""}
+          </p>
         </div>
         <div className={`${infoText.className}`}>
           <p className="text-xl">Altura:</p>

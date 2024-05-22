@@ -28,7 +28,7 @@ export default function DetailCard({ character, isOwner, onEdit }: Props) {
         )}
       </div>
       <div>
-        <Body character={character} onEdit={onEdit} />
+        <Body character={character} onEdit={onEdit} isOwner={isOwner} />
       </div>
     </div>
   );

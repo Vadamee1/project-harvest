@@ -2,17 +2,28 @@
 
 import { Button, Card, CardBody, CardFooter, Image } from "@nextui-org/react";
 import { useFormik } from "formik";
-import { useRef, useState } from "react";
-import NextImage from "next/image";
+import { useEffect, useRef, useState } from "react";
 import { IoAddCircleOutline } from "react-icons/io5";
+import { convertBase64 } from "@/helpers/convert-base64";
 
 interface Props {
-  image: string | null | undefined;
   isOwner: boolean;
+  image: string | null | undefined;
 }
 
-export default function InputCardFile({ image, isOwner }: Props) {
-  const [onEdit, setOnEdit] = useState(false);
+export default function InputCardFile({ isOwner, image }: Props) {
+  const [chargedImage, setChargedImage] = useState<Blob | null>(null);
+  const [base64Image, setBase64Image] = useState("");
+
+  useEffect(() => {
+    if (chargedImage) {
+      const uploadImage = async () => {
+        const base64 = await convertBase64(chargedImage);
+        setBase64Image(base64);
+      };
+      uploadImage();
+    }
+  }, [chargedImage]);
 
   const formik = useFormik({
     initialValues: {
@@ -26,51 +37,68 @@ export default function InputCardFile({ image, isOwner }: Props) {
   });
 
   const handleFileChange = (e: any) => {
-    formik.setFieldValue("profilePhoto", e.target.files[0]);
+    setChargedImage(e.target.files[0]);
   };
 
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleSelectClick = () => {
-    if (isOwner) {
-      if (inputRef.current) inputRef.current.click();
-    } else {
+    if (inputRef.current && isOwner) {
+      inputRef.current.click();
     }
-    setOnEdit(true);
   };
 
   return (
     <>
       <form onSubmit={formik.handleSubmit}>
-        <Card isBlurred isPressable>
-          {!image ? (
-            <CardBody onClick={handleSelectClick}>
-              <div className="flex justify-center items-center h-80 w-64">
-                <IoAddCircleOutline className="text-4xl" />
-              </div>
-            </CardBody>
-          ) : (
-            <>
-              <CardBody>
-                <Image
-                  alt="Profile picture"
-                  src={image ? image : "/images/Cat_November.jpg"}
-                  height={400}
-                  width={300}
-                  as={NextImage}
-                  priority
-                  className="object-cover"
-                />
-              </CardBody>
-              <CardFooter
-                className="absolute bg-white/70 bottom-0 border-t-1 border-zinc-100/50 z-10 justify-center"
-                onClick={handleSelectClick}
+        {!image ? (
+          <Card isBlurred isPressable={!base64Image}>
+            {!base64Image ? (
+              <>
+                <CardBody onClick={handleSelectClick}>
+                  <div className="flex justify-center items-center h-64 w-64">
+                    <IoAddCircleOutline className="text-4xl" />
+                  </div>
+                </CardBody>
+              </>
+            ) : (
+              <>
+                <Image alt="Imagen de perfil" src={base64Image} />
+                <CardFooter className="justify-center before:bg-white/10 border-white/20 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10">
+                  <Button
+                    className="text-tiny"
+                    variant="ghost"
+                    color="primary"
+                    radius="lg"
+                    size="sm"
+                  >
+                    Guardar
+                  </Button>
+                </CardFooter>
+              </>
+            )}
+          </Card>
+        ) : (
+          <Card>
+            <Image
+              alt="Imagen de perfil"
+              src={image}
+              height={250}
+              width={250}
+            />
+            <CardFooter className="justify-center before:bg-white/10 border-white/20 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10">
+              <Button
+                className="text-tiny"
+                variant="ghost"
+                color="primary"
+                radius="lg"
+                size="sm"
               >
-                <p className="text-black">Change photo</p>
-              </CardFooter>
-            </>
-          )}
-        </Card>
+                Guardar
+              </Button>
+            </CardFooter>
+          </Card>
+        )}
         <input
           type="file"
           name="proflePhoto"
@@ -78,7 +106,6 @@ export default function InputCardFile({ image, isOwner }: Props) {
           className="hidden"
           ref={inputRef}
         />
-        <Button type="submit">send</Button>
       </form>
     </>
   );

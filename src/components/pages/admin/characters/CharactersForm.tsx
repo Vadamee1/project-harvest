@@ -31,7 +31,7 @@ export default function CharactersForm({ users }: Props) {
     onSubmit: async (values) => {
       const resp = await createCharacter(values);
       if (resp.severity === "success") {
-        router.push("/");
+        router.push("/characters");
       }
     },
   });

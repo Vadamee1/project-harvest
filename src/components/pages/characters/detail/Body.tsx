@@ -9,16 +9,17 @@ import EditForm from "./EditForm";
 interface Props {
   character: CharacterDetailType | null;
   onEdit?: boolean;
+  isOwner: boolean;
 }
 
-export default function Body({ character, onEdit }: Props) {
+export default function Body({ character, onEdit, isOwner }: Props) {
   return (
     <Card isBlurred className="w-full">
       <CardHeader className="flex justify-between">
         <p className={`flex justify-start ${projectTitle.className} text-4xl`}>
           Datos
         </p>
-        {!onEdit && (
+        {!onEdit && isOwner ? (
           <Button
             startContent={<IoPencil />}
             color="warning"
@@ -28,6 +29,8 @@ export default function Body({ character, onEdit }: Props) {
           >
             Editar
           </Button>
+        ) : (
+          ""
         )}
       </CardHeader>
       <CardBody className="">
