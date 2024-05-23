@@ -15,7 +15,11 @@ export default function DetailCard({ character, isOwner, onEdit }: Props) {
     <div className="flex flex-col md:flex-row gap-5 justify-center items-center">
       <div>
         {onEdit ? (
-          <InputCardFile isOwner={isOwner} image={character?.image} />
+          <InputCardFile
+            isOwner={isOwner}
+            image={character?.image}
+            characterId={character?.id ?? 1}
+          />
         ) : (
           <>
             <p

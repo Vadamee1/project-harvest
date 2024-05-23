@@ -54,3 +54,8 @@ export type CharacterList = {
   name: string;
   image: string | null;
 };
+
+export type UpdateCharacterImage = {
+  id: number;
+  image: string;
+};

@@ -1,8 +1,8 @@
 import { UserType } from "@/types/user";
 import ProfileDetail from "./ProfileDetail";
-import InputCardFile from "../characters/detail/InputFileCard";
-import { Card, CardBody, Image, image } from "@nextui-org/react";
+import { Card, CardBody } from "@nextui-org/react";
 import ImageCard from "./ImageCard";
+import InputCardFile from "./InputCharacterFile";
 
 interface Props {
   user: UserType;
@@ -14,7 +14,11 @@ export default function UserCard({ user, isOwner }: Props) {
     <div className="flex flex-col gap-5">
       <Card isBlurred>
         {isOwner ? (
-          <InputCardFile isOwner={isOwner} image={user.image} />
+          <InputCardFile
+            isOwner={isOwner}
+            image={user.image}
+            userId={user.id}
+          />
         ) : (
           <ImageCard image={user.image} />
         )}
