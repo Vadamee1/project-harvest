@@ -1,3 +1,4 @@
+import getUser from "@/actions/user/get-user";
 import { auth } from "@/auth";
 import HomePage from "@/components/pages/home";
 import CardText from "@/components/pages/home/Cardtext";
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
 
 export default async function Home() {
   const session = await auth();
-  const user = session?.user;
+  const user = await getUser(session?.user.id ?? "");
   const isLoggedIn = !!session?.user;
   const isAdmin = user?.roleId === 1 ? true : false;
 

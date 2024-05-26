@@ -1,14 +1,6 @@
-export const convertBase64 = (file: Blob): Promise<string> => {
-  return new Promise((resolve, reject) => {
-    const fileReader = new FileReader();
-    fileReader.readAsDataURL(file);
+export const convertBase64 = async (image: Blob): Promise<string> => {
+  const buffer = await image.arrayBuffer();
+  const base64Image = Buffer.from(buffer).toString("base64");
 
-    fileReader.onload = () => {
-      resolve(fileReader.result as string);
-    };
-
-    fileReader.onerror = (error) => {
-      reject(error);
-    };
-  });
+  return `data:image/png;base64,${base64Image}`;
 };

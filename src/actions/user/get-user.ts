@@ -1,5 +1,4 @@
 import prisma from "@/prisma";
-import { UserType } from "@/types/user";
 
 export default async function getUser(id: string) {
   try {

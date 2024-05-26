@@ -14,3 +14,8 @@ export type UserType = {
   updatedAt: Date | null;
   deletedAt?: Date | null;
 };
+
+export type UpdateUserImage = {
+  id: string;
+  image: string;
+};

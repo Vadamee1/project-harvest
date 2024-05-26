@@ -4,18 +4,18 @@ import { Button, Card, CardBody, CardFooter, Image } from "@nextui-org/react";
 import { useEffect, useRef, useState } from "react";
 import { IoAddCircleOutline } from "react-icons/io5";
 import { convertBase64 } from "@/helpers/convert-base64";
-import saveImage from "@/actions/characters/saveImage";
 import { useRouter } from "next/navigation";
-import { UpdateCharacterImage } from "@/types/characters";
-import deleteCharacterImage from "@/actions/characters/deleteIamge";
+import updateImage from "@/actions/user/updateImage";
+import { UpdateUserImage } from "@/types/user";
+import deleteUserImage from "@/actions/user/deleteImage";
 
 interface Props {
   isOwner: boolean;
   image: string | null | undefined;
-  characterId: number;
+  userId: string;
 }
 
-export default function InputCardFile({ isOwner, image, characterId }: Props) {
+export default function InputCardFile({ isOwner, image, userId }: Props) {
   const [chargedImage, setChargedImage] = useState<Blob | null>(null);
   const [base64Image, setBase64Image] = useState("");
 
@@ -32,12 +32,12 @@ export default function InputCardFile({ isOwner, image, characterId }: Props) {
   }, [chargedImage]);
 
   const uploadImage = async (image: string) => {
-    const data: UpdateCharacterImage = {
-      id: characterId,
+    const data = {
+      id: userId,
       image,
     };
-    await saveImage(data);
-    router.push(`/characters/${characterId}`);
+    await updateImage(data);
+    router.push("/");
   };
 
   const handleFileChange = (e: any) => {
@@ -53,13 +53,12 @@ export default function InputCardFile({ isOwner, image, characterId }: Props) {
   };
 
   const handleDeleteImage = async (image: string) => {
-    const data: UpdateCharacterImage = {
-      id: characterId,
+    const data: UpdateUserImage = {
+      id: userId,
       image,
     };
-
-    const resp = await deleteCharacterImage(data);
-    if (resp.severity === "success") router.push(`/characters/${characterId}`);
+    const resp = await deleteUserImage(data);
+    if (resp.severity === "success") router.push("/");
   };
 
   return (
