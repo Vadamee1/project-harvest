@@ -9,7 +9,7 @@
     "build": "npm run prisma:deploy && next build",
     "start": "next start",
     "lint": "next lint",
-    "prisma:deploy": "npx prisma migrate deploy && prisma generate"
+    "prisma:deploy": "npx prisma migrate deploy && prisma generate && npx prisma db seed"
   },
   "dependencies": {
     "@nextui-org/react": "^2.3.5",
