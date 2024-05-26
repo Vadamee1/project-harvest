@@ -3,8 +3,13 @@ import { Card, CardBody, CardFooter, CardHeader } from "@nextui-org/react";
 import IndividualCards from "./IndividualCards";
 import CustomRedirectButtons from "@/components/shared/CustomRedirectButtons";
 import { RedirectButtonsType } from "@/types/shared";
+import { CharacterList } from "@/types/characters";
 
-export default function CharactersCard() {
+interface Props {
+  characters: CharacterList[];
+}
+
+export default function CharactersCard({ characters }: Props) {
   const buttons: RedirectButtonsType[] = [
     {
       label: "Regresar",
@@ -15,12 +20,12 @@ export default function CharactersCard() {
   ];
 
   return (
-    <Card className="mt-5 mb-5">
+    <Card isBlurred className="mt-5 mb-5">
       <CardHeader className="flex justify-center">
         <h1 className={`${projectTitle.className} text-3xl`}>Personajes</h1>
       </CardHeader>
       <CardBody>
-        <IndividualCards />
+        <IndividualCards characters={characters} />
       </CardBody>
       <CardFooter>
         <CustomRedirectButtons

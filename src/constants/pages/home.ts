@@ -15,20 +15,23 @@ export const COVENANT: Faction = {
 };
 
 export const REDIRECT_BUTTONS = [
-  {
+  /* {
     href: "/history",
     label: "Trama principal",
-  },
+  }, */
   {
     href: "/firstSteps",
-    label: "Primeros pasos",
+    label: "Acerca de nosotros",
   },
-  {
+  /* {
     href: "characters",
     label: "Personajes",
-  },
+  }, */
   /* {
     href: "today",
     label: "Actualidad",
   }, */
 ];
+
+export const homeText =
+  "¿Estás listo para formar parte del único escuadrón disponible que luchará por Harvest?";

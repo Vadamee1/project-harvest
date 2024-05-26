@@ -1,5 +1,4 @@
 import { Image } from "@nextui-org/react";
-import NextImage from "next/image";
 import RedirectButtons from "./RedirectButtons";
 
 interface Props {
@@ -17,8 +16,6 @@ export default function BodyHome({ color, href, height }: Props) {
           height={height}
           width={300}
           src={href}
-          as={NextImage}
-          priority
           isBlurred
         />
       </div>

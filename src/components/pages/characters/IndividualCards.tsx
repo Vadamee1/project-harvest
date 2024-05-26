@@ -1,22 +1,23 @@
 import { CHARACTERS } from "@/constants/pages/characters";
-import { Button, Card, CardFooter, CardHeader, Image } from "@nextui-org/react";
+import { CharacterList } from "@/types/characters";
+import { Button, Card, CardFooter, Image } from "@nextui-org/react";
 import Link from "next/link";
 
-export default function IndividualCards() {
+interface Props {
+  characters: CharacterList[];
+}
+
+export default function IndividualCards({ characters }: Props) {
   return (
     <>
-      <div className="grid gap-5">
-        {CHARACTERS.map((item) => (
-          <Card
-            isFooterBlurred
-            className="w-full h-[300px] col-span-12 sm:col-span-5"
-            key={item.id}
-          >
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
+        {characters.map((item) => (
+          <Card isFooterBlurred className="w-full h-[300px] " key={item.id}>
             <Image
               removeWrapper
               alt="Card example background"
               className="z-0 w-full h-full  object-cover"
-              src={item.image}
+              src={item.image ? item.image : "/images/Cat_November.jpg"}
             />
             <CardFooter className="absolute bg-white/30 bottom-0 border-t-1 border-zinc-100/50 z-10 justify-between">
               <div>
@@ -28,10 +29,10 @@ export default function IndividualCards() {
                 variant="ghost"
                 radius="full"
                 size="sm"
-                href={item.profile}
+                href={`/characters/${item.id}`}
                 as={Link}
               >
-                Perfil
+                Detalle
               </Button>
             </CardFooter>
           </Card>

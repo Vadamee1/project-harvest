@@ -1,0 +1,58 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id             String    @id @default(uuid())
+  nickname       String    @db.VarChar(25)
+  email          String    @db.VarChar(50) @unique
+  password       String    @db.VarChar(100)
+  roleId         Int       @map("role_id")
+  image          String?   @db.VarChar(255)
+  createdAt      DateTime  @default(now()) @map("created_at")
+  updatedAt      DateTime  @updatedAt @map("updated_at")
+  deletedAt      DateTime? @map("deleted_at")
+
+  role Role @relation(fields: [roleId], references: [id])
+
+  character Character[]
+
+  @@map("user")
+}
+
+model Role {
+  id        Int       @id @default(autoincrement())
+  name      String 
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime  @updatedAt @map("updated_at")
+  deletedAt DateTime? @map("deleted_at")
+
+  user User[] 
+
+  @@map("role")
+}
+
+model Character {
+  id Int @id @default(autoincrement())
+  name String @db.VarChar(50)
+  faction String @db.VarChar(20)
+  age Int?
+  height Int?
+  weight Int?
+  position String?
+  race String?
+  history String?
+  birthday DateTime?
+  image String?
+  profile String
+  userId String @map("user_id")
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@map("character")
+}
