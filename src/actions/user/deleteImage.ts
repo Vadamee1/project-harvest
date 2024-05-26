@@ -8,15 +8,19 @@ cloundinary.config(process.env.CLOUDINARY_URL ?? "");
 
 export default async function deleteUserImage({ id, image }: UpdateUserImage) {
   const imageName = image.split("/").pop()?.split(".")[0] ?? "";
-
   try {
-    await cloundinary.uploader.destroy(imageName);
     await prisma.user.update({
       where: { id },
       data: {
         image: null,
       },
     });
+    await cloundinary.uploader.destroy(imageName);
+
+    return {
+      message: "Image has been deleted success",
+      severity: "success",
+    };
   } catch (error) {
     console.log(error);
     throw new Error("No se logró.");

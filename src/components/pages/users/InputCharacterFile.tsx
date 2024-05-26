@@ -57,7 +57,8 @@ export default function InputCardFile({ isOwner, image, userId }: Props) {
       id: userId,
       image,
     };
-    await deleteUserImage(data);
+    const resp = await deleteUserImage(data);
+    if (resp.severity === "success") router.push("/");
   };
 
   return (

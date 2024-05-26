@@ -10,8 +10,6 @@ export default async function saveImage({ id, image }: UpdateCharacterImage) {
   try {
     const r = await cloundinary.uploader.upload(image);
 
-    console.log(r.secure_url);
-
     await prisma.character.update({
       where: { id },
       data: {

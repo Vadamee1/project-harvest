@@ -13,13 +13,17 @@ export default async function deleteCharacterImage({
   const imageName = image.split("/").pop()?.split(".")[0] ?? "";
 
   try {
-    await cloundinary.uploader.destroy(imageName);
     await prisma.character.update({
       where: { id },
       data: {
         image: null,
       },
     });
+    await cloundinary.uploader.destroy(imageName);
+    return {
+      message: "Image has been deleted success",
+      severity: "success",
+    };
   } catch (error) {
     console.log(error);
     throw new Error("No se logró.");

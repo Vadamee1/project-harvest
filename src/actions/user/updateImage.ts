@@ -10,8 +10,6 @@ export default async function updateImage({ id, image }: UpdateUserImage) {
   try {
     const r = await cloundinary.uploader.upload(image);
 
-    console.log(r.secure_url);
-
     await prisma.user.update({
       where: { id },
       data: {
